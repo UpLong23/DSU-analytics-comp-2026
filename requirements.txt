@@ -3,3 +3,7 @@ datetime
 numpy
 matplotlib
 seaborn
+scikit-learn
+kneed
+scipy
+fasttext
