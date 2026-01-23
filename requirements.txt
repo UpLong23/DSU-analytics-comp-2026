@@ -8,3 +8,5 @@ kneed
 scipy
 fasttext
 statsmodels
+statsforecast 
+utilsforecast

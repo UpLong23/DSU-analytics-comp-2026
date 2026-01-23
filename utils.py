@@ -177,5 +177,43 @@ def _remap(
     idx_of_reason = np.where(reason == unique_reasons)
     return model.predict(data[idx_of_reason])[0]
 
+def mean_over_time(process: np.array) -> np.array:
+    '''
+    This function calculates the cumulative mean, the window size 
+    that we take the mean increases over time.
+
+    It is a preliminary check to show that some ts ir or not stationary
+    if the cumulative mean stays rougly the same then the ts may be 
+    stationary, if it changes it is definitely not stationary.
+
+    Keep in mind that we may need to exclude the initial timesteps before 
+    the mean starts to converge. If it never does then we are not stationary.
+    '''
+    mean_func = []
+    
+    for i in range(len(process)):
+        mean_func.append(np.mean(process[:i]))
+    
+    return mean_func
+
+def var_over_time(process: np.array) -> np.array:
+    '''
+    This function calculates the cumulative variance, the window size 
+    that we take the variance increases over time.
+
+    It is a preliminary check to show that some ts ir or not stationary
+    if the cumulative variance stays rougly the same then the ts may be 
+    stationary, if it changes it is definitely not stationary.
+
+    Keep in mind that we may need to exclude the initial timesteps before 
+    the variance starts to converge. If it never does then we are not stationary.
+    '''
+    var_func = []
+    
+    for i in range(len(process)):
+        var_func.append(np.var(process[:i]))
+    
+    return var_func
+
 def sanity_check():
-    return 'Version 2'
+    return 'Version 3'
