@@ -198,7 +198,7 @@ def mean_over_time(process: np.array) -> np.array:
 
 def var_over_time(process: np.array) -> np.array:
     '''
-    This function calculates the cumulative variance, the window size 
+    This function calculates the cumulative (running) variance, the window size 
     that we take the variance increases over time.
 
     It is a preliminary check to show that some ts ir or not stationary

@@ -11,3 +11,4 @@ statsmodels
 statsforecast 
 utilsforecast
 xgboost
+tensorflow
